@@ -553,3 +553,14 @@ func TestRGB(t *testing.T) {
 		})
 	}
 }
+
+func TestMergeColors(t *testing.T) {
+	c1 := RGB(0, 100, 200)
+	c2 := BgRGB(10, 60, 110)
+	c3 := BgRGB(200, 80, 180)
+	cm1 := c1.Merge(c2)
+	cm2 := c1.Merge(c3)
+
+	cm1.Println("Shades of blue")
+	cm2.Println("Purple back")
+}
