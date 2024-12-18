@@ -166,6 +166,12 @@ func BgRGB(r, g, b int) *Color {
 	return New(background, 2, Attribute(r), Attribute(g), Attribute(b))
 }
 
+func (c *Color) Merge(c2 *Color) *Color {
+	params := c.params
+	params = append(c.params, c2.params...)
+	return New(params...)
+}
+
 // AddRGB is used to chain foreground RGB SGR parameters. Use as many as parameters to combine
 // and create custom color objects. Example: .Add(34, 0, 12).Add(255, 128, 0).
 func (c *Color) AddRGB(r, g, b int) *Color {
